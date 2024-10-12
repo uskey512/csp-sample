@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>サンプルページ</title>
+    <!-- 外部のスタイルシート -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- 外部のフォント -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- インラインスタイル -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h1 class="text-primary">サンプルページ</h1>
+<p>外部の画像を表示します：</p>
+<a title="Keith Kissel, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:June_odd-eyed-cat_cropped.jpg"><img width="512" alt="A white cat with one yellow eye and one blue eye" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/June_odd-eyed-cat_cropped.jpg/512px-June_odd-eyed-cat_cropped.jpg?20120228074717"></a>
+
+<p>外部のスクリプトを実行します：</p>
+<!-- 結果表示用の<p>タグ -->
+<p id="script-result"></p>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('body').css('background-color', '#e0f7fa');
+        $('#script-result').text('外部のスクリプトが正常に実行されました。');
+    });
+</script>
+
+<p>外部の動画を埋め込みます：</p>
+<iframe src="https://commons.wikimedia.org/wiki/File:Cat_making_noises_at_the_birds_outside.webm?embedplayer=yes" width="512" height="384" frameborder="0" loading="lazy" allow="autoplay; picture-in-picture" allowfullscreen></iframe>
+
+<p>インラインスクリプトを実行します：</p>
+<!-- 結果表示用の<p>タグ -->
+<p id="inline-script-result"></p>
+<script>
+    document.getElementById('inline-script-result').textContent = 'これはインラインスクリプトの結果です。';
+</script>
+
+<p>外部からデータを取得します（AJAX）：</p>
+<!-- 結果表示用の<p>タグ -->
+<p id="ajax-result"></p>
+<script>
+    $.get('https://api.github.com', function(data) {
+        $('#ajax-result').text('GitHub APIからデータを取得しました。');
+    });
+</script>
+
+<p>外部のオーディオを再生します：</p>
+<audio controls>
+    <source src="https://upload.wikimedia.org/wikipedia/commons/a/a4/J-Alert.wav" type="audio/mpeg">
+    お使いのブラウザはオーディオ要素をサポートしていません。
+</audio>
+</body>
+</html>
